@@ -1,4 +1,4 @@
-﻿using ModSettings;
+using ModSettings;
 using System.Reflection;
 
 namespace SkillAdjustmentFirestarting
@@ -42,6 +42,11 @@ namespace SkillAdjustmentFirestarting
         [Choice("+", "-")]
         public bool Fire2 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 20)")]
+        [Slider(20, 500)]
+        public int tier2 = 20;
+
         [Name("          Bonus Fire Starting")]
         [Description("Increase % chance to start a fire.(Game default = 55%)")]
         [Slider(0, 100)]
@@ -62,6 +67,11 @@ namespace SkillAdjustmentFirestarting
         [Description("Show or hide level 3 skills - All changes require game reload to take effect")]
         [Choice("+", "-")]
         public bool Fire3 = false;
+
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 50)")]
+        [Slider(50, 500)]
+        public int tier3 = 50;
 
         [Name("          Bonus Fire Starting")]
         [Description("Increase % chance to start a fire.(Game default = 65%)")]
@@ -84,6 +94,11 @@ namespace SkillAdjustmentFirestarting
         [Choice("+", "-")]
         public bool Fire4 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 100)")]
+        [Slider(100, 1000)]
+        public int tier4 = 100;
+
         [Name("          Bonus Fire Starting")]
         [Description("Increase % chance to start a fire.(Game default = 75%)")]
         [Slider(0, 100)]
@@ -104,6 +119,11 @@ namespace SkillAdjustmentFirestarting
         [Description("Show or hide level 5 skills - All changes require game reload to take effect")]
         [Choice("+", "-")]
         public bool Fire5 = false;
+
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 200)")]
+        [Slider(200, 1000)]
+        public int tier5 = 200;
 
         [Name("          Bonus Fire Starting")]
         [Description("Increase % chance to start a fire.(Game default = 90%)")]
@@ -151,21 +171,25 @@ namespace SkillAdjustmentFirestarting
             SetFieldVisible(nameof(chance2), Fire2 && Fire);
             SetFieldVisible(nameof(duration2), Fire2 && Fire);
             SetFieldVisible(nameof(quickstart2), Fire2 && Fire);
+            SetFieldVisible(nameof(tier2), Fire2 && Fire);
 
             SetFieldVisible(nameof(Fire3), Fire);
             SetFieldVisible(nameof(chance3), Fire3 && Fire);
             SetFieldVisible(nameof(duration3), Fire3 && Fire);
             SetFieldVisible(nameof(quickstart3), Fire3 && Fire);
+            SetFieldVisible(nameof(tier3), Fire3 && Fire);
 
             SetFieldVisible(nameof(Fire4), Fire);
             SetFieldVisible(nameof(chance4), Fire4 && Fire);
             SetFieldVisible(nameof(duration4), Fire4 && Fire);
             SetFieldVisible(nameof(quickstart4), Fire4 && Fire);
+            SetFieldVisible(nameof(tier4), Fire4 && Fire);
 
             SetFieldVisible(nameof(Fire5), Fire);
             SetFieldVisible(nameof(chance5), Fire5 && Fire);
             SetFieldVisible(nameof(duration5), Fire5 && Fire);
             SetFieldVisible(nameof(quickstart5), Fire5 && Fire);
+            SetFieldVisible(nameof(tier5), Fire5 && Fire);
 
         }
 
