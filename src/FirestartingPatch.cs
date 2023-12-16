@@ -4,6 +4,24 @@ using Il2Cpp;
 namespace SkillAdjustmentFirestarting
 {
     [HarmonyPatch(typeof(SkillsManager), nameof(SkillsManager.Awake))]
+    internal class FirestartingAdjustmentXP
+    {
+        public static void Postfix(SkillsManager __instance)
+        {
+            Skill firestarting = __instance.GetSkill(SkillType.Firestarting);
+
+            if (firestarting != null)
+            {
+                firestarting.m_TierPoints[1] = Settings.settings.tier2;
+                firestarting.m_TierPoints[2] = Settings.settings.tier3;
+                firestarting.m_TierPoints[3] = Settings.settings.tier4;
+                firestarting.m_TierPoints[4] = Settings.settings.tier5;
+            }
+        }
+    }
+
+
+    [HarmonyPatch(typeof(SkillsManager), nameof(SkillsManager.Awake))]
     internal class SkillAdjustmentFirestarting
     {
 
